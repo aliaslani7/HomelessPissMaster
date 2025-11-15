@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Typography, Alert, Snackbar } from "@mui/material";
+import { Box, Button, Typography, Alert, Snackbar } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import Homeless from "../../assets/images/Homeless.jpg";
 import { yellow } from "@mui/material/colors";
@@ -67,55 +67,157 @@ const HomlessPissMatser = () => {
     };
 
     return (
-        <Box bgcolor={yellow[100]} width={"100vw"} height={"100vh"}>
-            <Box display={"flex"} flexDirection={"column"} alignContent={"center"} alignItems={"center"} justifyContent={"center"} height={"100%"} padding={2}>
-                <Typography variant="h4" gutterBottom>
+        <Box bgcolor={yellow[100]} width={"100vw"} height={"100vh"} position="relative">
+            <Box
+                display={"flex"}
+                flexDirection={"column"}
+                alignContent={"center"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                height={"100%"}
+                padding={{ xs: 1, sm: 2, md: 3 }}
+                maxWidth="100%"
+                overflow="hidden"
+            >
+                <Typography
+                    variant="h4"
+                    gutterBottom
+                    sx={{
+                        fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                        textAlign: 'center',
+                        wordBreak: 'break-word'
+                    }}
+                >
                     Homeless Piss Master
                 </Typography>
 
-
-                <Typography variant="h2" color="primary" fontWeight="bold" marginY={2}>
+                <Typography
+                    variant="h2"
+                    color="primary"
+                    fontWeight="bold"
+                    marginY={2}
+                    sx={{
+                        fontSize: { xs: '3rem', sm: '4rem', md: '5rem' },
+                        textAlign: 'center'
+                    }}
+                >
                     {count}
                 </Typography>
 
-
-                <Typography variant="h6" marginBottom={2}>
+                <Typography
+                    variant="h6"
+                    marginBottom={2}
+                    sx={{
+                        fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
+                        textAlign: 'center',
+                        wordBreak: 'break-word'
+                    }}
+                >
                     Time until next count: {formatTime(timeLeft)}
                 </Typography>
 
-
-                <Typography variant="body1" color={isRunning ? "success.main" : "error.main"} marginBottom={2}>
+                <Typography
+                    variant="body1"
+                    color={isRunning ? "success.main" : "error.main"}
+                    marginBottom={2}
+                    sx={{
+                        fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
+                        textAlign: 'center'
+                    }}
+                >
                     Status: {isRunning ? "Running" : "Stopped"}
                 </Typography>
 
-                <Box width={400} marginTop={2} marginBottom={3}>
+                <Box
+                    width={{ xs: '90%', sm: '80%', md: 400 }}
+                    maxWidth={400}
+                    marginTop={2}
+                    marginBottom={3}
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}
+                >
                     <img
                         src={Homeless}
                         alt="Homeless"
                         style={{
-                            maxWidth: '100%',
+                            width: '100%',
                             height: 'auto',
+                            maxWidth: '100%',
                             filter: "contrast(1.2) brightness(1.1)",
-                            mixBlendMode: "multiply"
+                            mixBlendMode: "multiply",
+                            borderRadius: '8px'
                         }}
                     />
                 </Box>
 
 
-                <ButtonGroup variant="contained" size="large" sx={{ marginBottom: 2 }}>
-                    <Button onClick={handleStart} disabled={isRunning} color="success">
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: { xs: 'column', sm: 'row' },
+                        gap: { xs: 1, sm: 0 },
+                        marginBottom: 2,
+                        width: { xs: '100%', sm: 'auto' },
+                        maxWidth: { xs: '300px', sm: 'none' }
+                    }}
+                >
+                    <Button
+                        onClick={handleStart}
+                        disabled={isRunning}
+                        color="success"
+                        variant="contained"
+                        sx={{
+                            fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
+                            padding: { xs: '8px 16px', sm: '10px 20px', md: '12px 24px' },
+                            minWidth: { xs: '100%', sm: '80px', md: '100px' },
+                            borderRadius: { xs: '8px', sm: '8px 0 0 8px' }
+                        }}
+                    >
                         Start
                     </Button>
-                    <Button onClick={handleStop} disabled={!isRunning} color="warning">
+                    <Button
+                        onClick={handleStop}
+                        disabled={!isRunning}
+                        color="warning"
+                        variant="contained"
+                        sx={{
+                            fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
+                            padding: { xs: '8px 16px', sm: '10px 20px', md: '12px 24px' },
+                            minWidth: { xs: '100%', sm: '80px', md: '100px' },
+                            borderRadius: { xs: '8px', sm: '0' }
+                        }}
+                    >
                         Stop
                     </Button>
-                    <Button onClick={handleReset} color="error">
+                    <Button
+                        onClick={handleReset}
+                        color="error"
+                        variant="contained"
+                        sx={{
+                            fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
+                            padding: { xs: '8px 16px', sm: '10px 20px', md: '12px 24px' },
+                            minWidth: { xs: '100%', sm: '80px', md: '100px' },
+                            borderRadius: { xs: '8px', sm: '0 8px 8px 0' }
+                        }}
+                    >
                         Reset
                     </Button>
-                </ButtonGroup>
+                </Box>
 
-
-                <Button variant="outlined" onClick={handleManualIncrement} size="large">
+                <Button
+                    variant="outlined"
+                    onClick={handleManualIncrement}
+                    sx={{
+                        fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
+                        padding: { xs: '8px 16px', sm: '10px 20px', md: '12px 24px' },
+                        width: { xs: '100%', sm: 'auto' },
+                        maxWidth: { xs: '300px', sm: 'none' },
+                        borderRadius: '8px'
+                    }}
+                >
                     Manual Count (+1)
                 </Button>
 
@@ -134,6 +236,27 @@ const HomlessPissMatser = () => {
                         🎉 Homeless Piss cycle completed! Count: {count}
                     </Alert>
                 </Snackbar>
+            </Box>
+
+            {/* Footer */}
+            <Box
+                position="absolute"
+                bottom={0}
+                width="100%"
+                textAlign="center"
+                padding={{ xs: 0.5, sm: 1 }}
+                bgcolor="rgba(0,0,0,0.1)"
+            >
+                <Typography
+                    variant="caption"
+                    color="textSecondary"
+                    sx={{
+                        fontFamily: 'monospace',
+                        fontSize: { xs: '0.625rem', sm: '0.75rem', md: '0.875rem' }
+                    }}
+                >
+                    💀 Crafted with chaos by aa7 💀
+                </Typography>
             </Box>
         </Box>
     );
