@@ -1,4 +1,4 @@
-import { Box, Button, Typography, Alert, Snackbar, IconButton } from "@mui/material";
+import { Box, Button, Typography, Alert, Snackbar} from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import Homeless from "../../assets/images/Homeless.jpg";
 import { yellow } from "@mui/material/colors";
