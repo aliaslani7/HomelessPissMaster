@@ -1,4 +1,4 @@
-import { Box, Button, Typography, Alert, Snackbar } from "@mui/material";
+import { Box, Button, Typography, Alert, Snackbar, IconButton } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import Homeless from "../../assets/images/Homeless.jpg";
 import { yellow } from "@mui/material/colors";
@@ -167,13 +167,21 @@ const HomlessPissMatser = () => {
                     <Button
                         onClick={handleStart}
                         disabled={isRunning}
-                        color="success"
                         variant="contained"
                         sx={{
                             fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
                             padding: { xs: '8px 16px', sm: '10px 20px', md: '12px 24px' },
                             minWidth: { xs: '100%', sm: '80px', md: '100px' },
-                            borderRadius: { xs: '8px', sm: '8px 0 0 8px' }
+                            borderRadius: { xs: '8px', sm: '8px 0 0 8px' },
+                            backgroundColor: yellow[700],
+                            color: 'white',
+                            '&:hover': {
+                                backgroundColor: yellow[800]
+                            },
+                            '&:disabled': {
+                                backgroundColor: yellow[200],
+                                color: yellow[600]
+                            }
                         }}
                     >
                         Start
@@ -255,7 +263,7 @@ const HomlessPissMatser = () => {
                         fontSize: { xs: '0.625rem', sm: '0.75rem', md: '0.875rem' }
                     }}
                 >
-                    💀 Crafted with chaos by aa7 💀
+                    ⚡ Built with passion by aa7 ⚡
                 </Typography>
             </Box>
         </Box>
